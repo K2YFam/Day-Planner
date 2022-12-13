@@ -1,17 +1,17 @@
-//    displays current time at the top
+//    Shows current time at the top
 $("#time-display").text(moment().format('MMM DD, YYYY [at] hh:mm:ss a')); 
 
 var input_textarea = document.querySelector('.row');
 var output_div = document.querySelector('.textBox');
 var save_button = document.querySelector('.saveBtn');
-// For Loop recreates text areas for the page
+// Loop recreates and makes text areas for the page
 var textBox = $(".textBox")
 
 for (var i = 0; i < textBox.length; i++) {
     var textArea = $(textBox[i]);
     let textBoxHour = textArea.attr("id");
     let currentHour = moment().format('H');
-    // If Statement applies styling depending on hour: future, present, past
+    // If saying goes styling depends on hour: future, present, past
     if (currentHour < textBoxHour) {
         textArea.addClass("future")
     }
@@ -21,7 +21,7 @@ for (var i = 0; i < textBox.length; i++) {
     else textArea.addClass("past")
 }
 
-// Buttons to save the text that is entered in local storage
+// System Buttons to save text that is put in local storage
 $("#button-addon1").click(function() {
 nineAMInput = $("#09").val();
 localStorage.setItem("09", JSON.stringify(nineAMInput));
@@ -59,7 +59,7 @@ nineAMInput = $("#17").val();
 localStorage.setItem("17", JSON.stringify(nineAMInput));
 });
 
-// Retreiving the saved text entered in the local storage
+// Grabbing all saved text put into the local storage
 stored9AM = JSON.parse(localStorage.getItem("09"));
 $("#09").val(stored9AM);
 
